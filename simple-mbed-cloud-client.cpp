@@ -347,6 +347,14 @@ bool SimpleMbedCloudClient::register_and_connect() {
                     resourceDef.resource_id, resourceDef.name.c_str(), M2MResourceInstance::STRING,
                     (M2MBase::Operation)resourceDef.method_mask, resourceDef.value.c_str(), resourceDef.observable,
                     resourceDef.put_callback, resourceDef.post_callback, resourceDef.notification_callback);
+        printf("notification_callback = %p\n", resourceDef.notification_callback);
+        // Hack to enable auto-observation in this example.
+        // This is needed so that client sends values to cloud automatically.
+        if (strcmp(resourceDef.name.c_str(), "temperature") == 0 ||
+            strcmp(resourceDef.name.c_str(), "humidity") == 0) {
+            res->set_auto_observable(true);
+            printf("enable auto observation for \"%s\"\n", resourceDef.name.c_str());
+        }
         _resources[i]->set_m2m_resource(res);
     }
     _cloud_client.add_objects(_obj_list);
