@@ -74,7 +74,9 @@ SimpleMbedCloudClient::~SimpleMbedCloudClient() {
 int SimpleMbedCloudClient::init() {
     // Requires DAPLink 245+ (https://github.com/ARMmbed/DAPLink/pull/364)
     // Older versions: workaround to prevent possible deletion of credentials:
+    printf("wait(1) workaround\n");
     wait(1);
+    printf("wait(1) workaround done\n");
 
     extern const uint8_t arm_uc_vendor_id[];
     extern const uint16_t arm_uc_vendor_id_size;
@@ -131,7 +133,9 @@ int SimpleMbedCloudClient::init() {
     }
 #endif
 
+    printf("verify_cloud_configuration()\n");
     status = verify_cloud_configuration();
+    printf("verify_cloud_configuration() done\n");
 
     if (status != 0) {
     // This is designed to simplify user-experience by auto-formatting the
