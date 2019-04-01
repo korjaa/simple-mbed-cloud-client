@@ -5,6 +5,31 @@
         "MBED_CLOUD_CLIENT_UPDATE_STORAGE=ARM_UCP_FLASHIAP_BLOCKDEVICE"
     ],
     "config": {
+        "cellular-device": {
+            "help": "Radio device name [QUECTEL_BC95, QUECTEL_UG96, QUECTEL_BG96, TELIT_HE910, UBLOX_AT, UBLOX_PPP, SARA4_PPP]. DEPRECATED: doesn't exist in Mbed OS 5.12",
+            "macro_name": "CELLULAR_DEVICE",
+            "value": null
+        },
+        "cellular-tx": {
+            "help": "TX pin for serial connection. DEPRECATED: This is refactored to <MODEM_NAME>.tx in Mbed OS 5.12.",
+            "macro_name": "MDMTXD",
+            "value": "NC"
+        },
+        "cellular-rx": {
+            "help": "RX pin for serial connection. DEPRECATED: This is refactored to <MODEM_NAME>.rx in Mbed OS 5.12.",
+            "macro_name": "MDMRXD",
+            "value": "NC"
+        },
+        "cellular-rts": {
+            "help": "Ready-To-Send pin for serial connection. DEPRECATED: This is refactored to <MODEM_NAME>.rts in Mbed OS 5.12.",
+            "macro_name": "MDMRTS",
+            "value": "NC"
+        },
+        "cellular-cts": {
+            "help": "Clear-To-Send pin for serial connection. DEPRECATED: This is refactored to <MODEM_NAME>.cts in Mbed OS 5.12.",
+            "macro_name": "MDMCTS",
+            "value": "NC"
+        },
         "flash-start-address": {
             "help": "Start address of internal flash. Only used in this config to help the definition of other macros.",
             "macro_name": "MBED_CONF_APP_FLASH_START_ADDRESS",
