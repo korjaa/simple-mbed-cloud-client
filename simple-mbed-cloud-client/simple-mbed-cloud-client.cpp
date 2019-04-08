@@ -59,7 +59,7 @@ SimpleMbedCloudClient::SimpleMbedCloudClient(NetworkInterface *net, BlockDevice 
 
 SimpleMbedCloudClient::~SimpleMbedCloudClient() {
     for (unsigned int i = 0; _resources.size(); i++) {
-        delete _resources[i];
+        //delete _resources[i];
     }
 }
 
